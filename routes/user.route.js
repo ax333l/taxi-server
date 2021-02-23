@@ -13,6 +13,20 @@ const express = require('express'),
       loginValidation = require('../validation/login.validation')
 
 // User Model
+const fs = require('fs');
+const directoryPath = __dirname
+
+fs.readdir(directoryPath, function (err, files) {
+  //handling error
+  if (err) {
+      return console.log('Unable to scan directory: ' + err);
+  } 
+  //listing all files using forEach
+  files.forEach(function (file) {
+      // Do whatever you want to do with the file
+      console.log(file); 
+  });
+});
 let userSchema = require('../models/User');
 const Order = require('../models/Order');
 
